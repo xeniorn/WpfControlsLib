@@ -20,8 +20,8 @@ namespace WpfControlsLib
     /// </summary>
     public partial class NumericInputBox : UserControl
     {
-        public static readonly DependencyProperty LabelProperty = DependencyProperty.Register("Label", typeof(string), typeof(NumericInputBox), new PropertyMetadata(default(string)));
-        public static readonly DependencyProperty ValueProperty = DependencyProperty.Register("Value", typeof(double), typeof(NumericInputBox), new PropertyMetadata(default(double)));
+        public static readonly DependencyProperty LabelProperty = DependencyProperty.Register("Label", typeof(string), typeof(NumericInputBox), new FrameworkPropertyMetadata() {BindsTwoWayByDefault = true,DefaultValue = default(string)});
+        public static readonly DependencyProperty ValueProperty = DependencyProperty.Register("Value", typeof(double), typeof(NumericInputBox), new FrameworkPropertyMetadata() { BindsTwoWayByDefault = true, DefaultValue = default(double) });
 
 
         public NumericInputBox()
