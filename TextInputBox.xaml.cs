@@ -16,17 +16,18 @@ using System.Windows.Shapes;
 namespace WpfControlsLib
 {
     /// <summary>
-    /// Interaction logic for NumericInputBox.xaml
+    /// Interaction logic for TextInputBox.xaml
     /// </summary>
-    public partial class NumericInputBox : UserControl
+    public partial class TextInputBox : UserControl
     {
-        public static readonly DependencyProperty LabelProperty = DependencyProperty.Register("Label", typeof(string), typeof(NumericInputBox), 
+        public static readonly DependencyProperty LabelProperty = DependencyProperty.Register("Label", typeof(string), typeof(TextInputBox), 
             new FrameworkPropertyMetadata() {BindsTwoWayByDefault = false,DefaultValue = default(string)});
-        public static readonly DependencyProperty ValueProperty = DependencyProperty.Register("Value", typeof(double), typeof(NumericInputBox), 
-            new FrameworkPropertyMetadata() { BindsTwoWayByDefault = true, DefaultValue = default(double) });
+
+        public static readonly DependencyProperty TextProperty = DependencyProperty.Register("Text", typeof(string), typeof(TextInputBox), 
+            new FrameworkPropertyMetadata() { BindsTwoWayByDefault = true, DefaultValue = default(string) });
 
 
-        public NumericInputBox()
+        public TextInputBox()
         {
             InitializeComponent();
         }
@@ -37,10 +38,10 @@ namespace WpfControlsLib
             set { SetValue(LabelProperty, value); }
         }
 
-        public double Value
+        public string Text
         {
-            get { return (double) GetValue(ValueProperty); }
-            set { SetValue(ValueProperty, value); }
+            get { return (string) GetValue(TextProperty); }
+            set { SetValue(TextProperty, value); }
         }
     }
 }

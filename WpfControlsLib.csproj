@@ -48,6 +48,10 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="TextInputBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="NumericInputBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -61,6 +65,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TextInputBox.xaml.cs">
+      <DependentUpon>TextInputBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="NumericInputBox.xaml.cs">
       <DependentUpon>NumericInputBox.xaml</DependentUpon>
     </Compile>
