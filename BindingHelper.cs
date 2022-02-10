@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Data;
 
 namespace WpfControlsLib
@@ -17,7 +12,8 @@ namespace WpfControlsLib
             BindingMode targetBindingMode = BindingMode.TwoWay,
             IValueConverter iConverter = null)
         {
-            BindSourceToTargetDependencyProperty(sourceObject, new PropertyPath(sourcePropertyPathString), targetDependencyObject, targetDependencyProperty,targetBindingMode,iConverter);
+            BindSourceToTargetDependencyProperty(sourceObject, new PropertyPath(sourcePropertyPathString),
+                targetDependencyObject, targetDependencyProperty, targetBindingMode, iConverter);
         }
 
         public static void BindSourceToTargetDependencyProperty(object sourceObject,
@@ -27,27 +23,21 @@ namespace WpfControlsLib
             BindingMode targetBindingMode = BindingMode.TwoWay,
             IValueConverter iConverter = null)
         {
-            var tempBind = new Binding();
-
-            tempBind.Mode = targetBindingMode;
-            tempBind.Path = sourcePropertyPath;
-            tempBind.Source = sourceObject;
-            if (iConverter != null)
+            var tempBind = new Binding
             {
-                tempBind.Converter = iConverter;
-            }
+                Mode = targetBindingMode,
+                Path = sourcePropertyPath,
+                Source = sourceObject
+            };
+            if (iConverter != null) tempBind.Converter = iConverter;
 
             BindingOperations.SetBinding(targetDependencyObject, targetDependencyProperty, tempBind);
-
         }
 
         public static void UnbindTargetDependencyProperty(DependencyObject targetDependencyObject,
             DependencyProperty targetDependencyProperty)
         {
-            BindingOperations.ClearBinding(targetDependencyObject,targetDependencyProperty);
-            
-            
+            BindingOperations.ClearBinding(targetDependencyObject, targetDependencyProperty);
         }
-
     }
 }

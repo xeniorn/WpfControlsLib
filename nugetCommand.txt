@@ -1,0 +1,2 @@
+﻿cd "C:\Users\juraj.ahel\source\repos\xeniorn\WpfControlsLib"
+nuget add "bin\Release\WpfControlsLib.1.0.0.nupkg" -Source "\\appdata.vbc.ac.at\vbc_tools\clausen\repos\nuget"
