@@ -6,17 +6,20 @@ namespace WpfControlsLib
 {
     public class NumberViewingSuperConverter : IMultiValueConverter
     {
+      
+
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
-            var parentObject = (NumericInputBox)values[0];
-            var value = (string)values[1];
-
+            var value = (double)values[0];
+            var parentObject = (NumericInputBox)values[1];
+            
+            //if (!parentObject.ValueBox.IsFocused) return value;
 
             switch (parentObject.RoundingMode)
             {
                 case RoundingMode.Auto:
                 case RoundingMode.None:
-                    return value;
+                    return value.ToString();
                 case RoundingMode.DecimalPlaces:
                     return StringFromFixedDecimalPlaces(value, parentObject.DecimalSpots);
                 case RoundingMode.SignificantDigits:
@@ -32,17 +35,21 @@ namespace WpfControlsLib
             throw new NotSupportedException();
         }
 
-        private string StringFromFixedSignificantDigits(string value, int parentObjectSignificantDigits)
+        private string StringFromFixedSignificantDigits(double value, int parentObjectSignificantDigits)
         {
-            double numericValue;
-            try
-            {
-                numericValue = double.Parse(value, CultureInfo.InvariantCulture);
-            }
-            catch (FormatException e)
-            {
-                return value;
-            }
+            var numericValue = value;
+            
+            //if ((value == null) || (value == "")) return "";
+
+            //double numericValue;
+            //try
+            //{
+            //    numericValue = double.Parse(value, CultureInfo.InvariantCulture);
+            //}
+            //catch (FormatException e)
+            //{
+            //    return value;
+            //}
 
             if (numericValue == 0) return "0";
 
@@ -60,37 +67,41 @@ namespace WpfControlsLib
 
                 var afterDecimal = parentObjectSignificantDigits - logScale;
                 var formatString = "#." + new string('0', afterDecimal);
-                return finalVal.ToString(formatString, CultureInfo.InvariantCulture);
+                return finalVal.ToString(formatString);
             }
 
             {
                 var formatString = "0";
-                return finalVal.ToString(formatString, CultureInfo.InvariantCulture);
+                return finalVal.ToString(formatString);
             }
         }
 
-        private string StringFromFixedDecimalPlaces(string value, int parentObjectDecimalSpots)
+        private string StringFromFixedDecimalPlaces(double value, int parentObjectDecimalSpots)
         {
-            double numericValue;
-            try
-            {
-                numericValue = double.Parse(value, CultureInfo.InvariantCulture);
-            }
-            catch (FormatException e)
-            {
-                return value;
-            }
+            var numericValue = value;
+
+            //if ((value == null) || (value=="")) return "";
+            
+            //double numericValue;
+            //try
+            //{
+            //    numericValue = double.Parse(value, CultureInfo.InvariantCulture);
+            //}
+            //catch (FormatException e)
+            //{
+            //    return value;
+            //}
 
             if (parentObjectDecimalSpots > 0)
             {
                 var finalVal = Math.Round(numericValue, parentObjectDecimalSpots);
-                return finalVal.ToString(CultureInfo.InvariantCulture);
+                return finalVal.ToString();
             }
 
             var factor = Math.Pow(10, parentObjectDecimalSpots);
             var reverseFactor = (int)Math.Pow(10, -1 * parentObjectDecimalSpots);
 
-            return ((int)(Math.Round(numericValue * factor, 0) * reverseFactor)).ToString(CultureInfo.InvariantCulture);
+            return ((int)(Math.Round(numericValue * factor, 0) * reverseFactor)).ToString();
         }
     }
 }

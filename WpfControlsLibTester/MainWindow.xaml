@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfControlsLibTester"
         xmlns:wpfControlsLib="clr-namespace:WpfControlsLib;assembly=WpfControlsLib"
+        xmlns:globalization="clr-namespace:System.Globalization;assembly=System.Runtime"
         mc:Ignorable="d"
         d:DataContext="{d:DesignInstance local:MainWindowViewModel, IsDesignTimeCreatable=True}"
         Title="MainWindow" Height="450" Width="800">
@@ -15,7 +16,7 @@
         <wpfControlsLib:NumericInputBox Label="SigDigits1" Value="{Binding Val_Sig}" RoundingMode="SignificantDigits" SignificantDigits="1"></wpfControlsLib:NumericInputBox>
         <wpfControlsLib:NumericInputBox Label="NoRound" Value="{Binding Val_NoRound}" RoundingMode="None"></wpfControlsLib:NumericInputBox>
         <wpfControlsLib:IntegerInputBox Label="Integer" Value="{Binding Val_Int}"></wpfControlsLib:IntegerInputBox>
-        <wpfControlsLib:TextInputBox Label="Text" Text="{Binding Val_Text}"></wpfControlsLib:TextInputBox>
+        <wpfControlsLib:TextInputBox Label="Text" Text="{Binding Val_Text, ConverterCulture={x:Static globalization:CultureInfo.CurrentCulture}}"></wpfControlsLib:TextInputBox>
 
         <Button Content="InputBox" Click="ButtonBase_OnClick"></Button>
         <TextBox TextWrapping="Wrap" Text="{Binding TextFromPopup}"></TextBox>
