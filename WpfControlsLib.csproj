@@ -9,5 +9,12 @@
     <Version>1.1.0</Version>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="WpfControlsLibTester\**" />
+    <EmbeddedResource Remove="WpfControlsLibTester\**" />
+    <None Remove="WpfControlsLibTester\**" />
+    <Page Remove="WpfControlsLibTester\**" />
+  </ItemGroup>
+
 
 </Project>
