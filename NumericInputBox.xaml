@@ -6,10 +6,12 @@
              xmlns:local="clr-namespace:WpfControlsLib"
              xmlns:diag="clr-namespace:System.Diagnostics;assembly=WindowsBase"
              xmlns:globalization="clr-namespace:System.Globalization;assembly=System.Runtime"
+             xmlns:globalization1="clr-namespace:System.Globalization;assembly=mscorlib"
              mc:Ignorable="d"
              d:DesignHeight="100" d:DesignWidth="300">
     <UserControl.Resources>
         <local:NumberViewingSuperConverter x:Key="NumberViewingSuperConverter" />
+        <local:NumberInputSmartSuperConverter x:Key="NumberInputSmartSuperConverter" />
     </UserControl.Resources>
     <Grid Margin="1">
         <Grid.ColumnDefinitions>
@@ -18,7 +20,17 @@
         </Grid.ColumnDefinitions>
         <TextBlock Grid.Column="0"
                    Text="{Binding Label, RelativeSource={RelativeSource FindAncestor,AncestorType=UserControl}}"
-                   Margin="0,0,5,0" />
+                   Margin="0,0,5,0" >
+            <TextBlock.Style>
+                <Style TargetType="TextBlock">
+                    <Style.Triggers>
+                        <Trigger Property="Text" Value="">
+                            <Setter Property="Visibility" Value="Collapsed"></Setter>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
         <TextBox x:Name="ValueBox" Grid.Column="1" MinWidth="10">
             <TextBox.Style>
                 <Style TargetType="TextBox">
@@ -28,7 +40,8 @@
                                     Value="{Binding Path=Value, 
                                 RelativeSource={RelativeSource FindAncestor,AncestorType=UserControl},
                                 Mode=TwoWay,
-                                ConverterCulture={x:Static globalization:CultureInfo.CurrentCulture}}" />
+                                Converter={StaticResource NumberInputSmartSuperConverter},
+                                ConverterCulture={x:Static globalization1:CultureInfo.CurrentCulture}}" />
                         </Trigger>
                         <Trigger Property="IsFocused" Value="False">
                             <Setter Property="IsReadOnly" Value="True"></Setter>

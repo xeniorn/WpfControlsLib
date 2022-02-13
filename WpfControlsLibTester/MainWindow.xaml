@@ -20,7 +20,19 @@
 
         <Button Content="InputBox" Click="ButtonBase_OnClick"></Button>
         <TextBox TextWrapping="Wrap" Text="{Binding TextFromPopup}"></TextBox>
-        
+        <wpfControlsLib:NumericInputBox Label="" Value="{Binding Val_NoRound}" RoundingMode="None"></wpfControlsLib:NumericInputBox>
+        <wpfControlsLib:NumericInputBox Value="{Binding Val_NoRound}" RoundingMode="None"></wpfControlsLib:NumericInputBox>
+
+
+        <wpfControlsLib:NumericInputBox Label="AutoRound" Value="{Binding Val_AutoRound}" RoundingMode="Auto"></wpfControlsLib:NumericInputBox>
+        <wpfControlsLib:NumericInputBox Label="DecimalSpaces" Value="{Binding Val_AutoRound}" RoundingMode="DecimalPlaces" DecimalSpots="3"></wpfControlsLib:NumericInputBox>
+        <wpfControlsLib:NumericInputBox Label="SigDigitsDef" Value="{Binding Val_AutoRound}" RoundingMode="SignificantDigits" ></wpfControlsLib:NumericInputBox>
+        <wpfControlsLib:NumericInputBox Label="SigDigits1" Value="{Binding Val_AutoRound}" RoundingMode="SignificantDigits" SignificantDigits="1"></wpfControlsLib:NumericInputBox>
+        <wpfControlsLib:NumericInputBox Label="NoRound" Value="{Binding Val_AutoRound}" RoundingMode="None"></wpfControlsLib:NumericInputBox>
+        <wpfControlsLib:IntegerInputBox Label="Integer" Value="{Binding Val_AutoRound}"></wpfControlsLib:IntegerInputBox>
+
+
+
 
     </StackPanel>
 </Window>
