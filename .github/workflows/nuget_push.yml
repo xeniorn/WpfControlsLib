@@ -29,7 +29,7 @@ env:
     
 jobs:
   build_and_deploy_nuget:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
     - name: Checkout
@@ -44,6 +44,10 @@ jobs:
     - name: Override version
       if: "${{ inputs.override_version == true || inputs.override_version == 'true' }}"
       run: echo "VERSION=${{ inputs.version }}" >> $GITHUB_ENV
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 9.0.x
     - name: Build
       run: dotnet build --configuration ${TARGET_CONFIGURATION} /p:Version=${VERSION}
     - name: Test
