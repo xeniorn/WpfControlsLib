@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.31903.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfControlsLib", "WpfControlsLib.csproj", "{9B8788A5-C474-4A56-A6E2-39B0A9793CB2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfControlsLib", "WpfControlsLib\WpfControlsLib.csproj", "{9B8788A5-C474-4A56-A6E2-39B0A9793CB2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfControlsLibTester", "WpfControlsLibTester\WpfControlsLibTester.csproj", "{EF185E9C-1B41-4655-9AF6-6E66AA36E6FC}"
 EndProject

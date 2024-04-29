@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFrameworks>net472;net6.0-windows;net7.0-windows;net8.0-windows</TargetFrameworks>
+    <UseWPF>true</UseWPF>    
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="WpfControlsLibTester\**" />
+    <EmbeddedResource Remove="WpfControlsLibTester\**" />
+    <None Remove="WpfControlsLibTester\**" />
+    <Page Remove="WpfControlsLibTester\**" />
+  </ItemGroup>
+
+  <Choose>
+    <When Condition=" '$(VersionSuffix)'!='' ">
+      <PropertyGroup>
+        <PackageVersion>$(VersionPrefix)-$(VersionSuffix)</PackageVersion>
+      </PropertyGroup>
+    </When>
+    <When Condition=" '$(VersionSuffix)'=='' ">
+      <PropertyGroup>
+        <PackageVersion>$(VersionPrefix)</PackageVersion>
+      </PropertyGroup>
+    </When>
+  </Choose>
+
+  <PropertyGroup>
+    <PackageId>ProcessHelperLib</PackageId>
+    <Authors>Juraj Ahel</Authors>
+    <Description>WpfControlsLib contains some convenience controls focused on user input.</Description>
+    <PackageProjectUrl>https://github.com/xeniorn/WpfControlsLib</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/xeniorn/WpfControlsLib</RepositoryUrl>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageTags>helper;library</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="../README.md" Pack="true" PackagePath=""/>
+    <None Include="../LICENSE" Pack="true" PackagePath=""/>
+    <None Include="../Resources/icon.png" Pack="true" PackagePath=""/>
+  </ItemGroup>
+
+
+</Project>
