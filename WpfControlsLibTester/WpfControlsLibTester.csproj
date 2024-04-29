@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WpfControlsLib.csproj" />
+    <ProjectReference Include="..\WpfControlsLib\WpfControlsLib.csproj" />
   </ItemGroup>
 
 </Project>

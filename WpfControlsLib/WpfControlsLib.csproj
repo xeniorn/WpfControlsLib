@@ -28,7 +28,7 @@
   </Choose>
 
   <PropertyGroup>
-    <PackageId>ProcessHelperLib</PackageId>
+    <PackageId>WpfControlsLib</PackageId>
     <Authors>Juraj Ahel</Authors>
     <Description>WpfControlsLib contains some convenience controls focused on user input.</Description>
     <PackageProjectUrl>https://github.com/xeniorn/WpfControlsLib</PackageProjectUrl>
