@@ -2,3 +2,6 @@ main: ![Status](https://github.com/xeniorn/WpfControlsLib/actions/workflows/dotn
 develop: ![Status](https://github.com/xeniorn/WpfControlsLib/actions/workflows/dotnet.yml/badge.svg?branch=develop)
 
 WpfControlsLib has some convenient controls for handling user input.
+
+Deploys to:
+https://www.nuget.org/packages/WpfControlsLib
